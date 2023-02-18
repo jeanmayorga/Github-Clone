@@ -8,9 +8,11 @@ import { ProfileView } from "./modules";
 
 import "./index.css";
 
-const root = document.getElementById("root");
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
-ReactDOM.createRoot(root).render(
+root.render(
   <BrowserRouter>
     <QueryParamProvider adapter={ReactRouter6Adapter}>
       <Routes>

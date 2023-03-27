@@ -7,14 +7,10 @@
     "clsx": "^1.1.1",
     "eslint-config-next": "^13.2.4",
     "next": "^13.2.4",
-    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.8.1",
-    "swr": "^2.0.3",
     "use-debouncy": "^4.2.1",
-    "use-query-params": "^2.2.0",
     "zustand": "^4.3.6"
   },
   "scripts": {

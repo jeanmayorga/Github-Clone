@@ -1,44 +1,37 @@
-import { useEffect } from "react";
-import useSWR from "swr";
-import { githubApi } from "../../services";
-import { Repository } from "./types";
+import { useQuery } from "react-query";
 
-interface Params {
-  page?: number;
-  query?: string;
-  language?: string;
-  type?: string;
-  direction?: string;
-  sort?: string;
-}
+import { getRepositories } from "./services";
+import { useFiltersStore } from "@/store";
 
-export function useRepositories(options: { user?: string; params?: Params }) {
-  const { user, params } = options;
-  let repositories: Repository[] = [];
-  const {
-    data = [],
-    isLoading,
-    mutate,
-  } = useSWR<Repository[]>(`users/${user}/repos`, (url) =>
-    githubApi(url, params)
-  );
-  repositories = data;
+export function useRepositories(options: { user: string }) {
+  const { type, language, sort, direction, query, page } = useFiltersStore();
 
-  if (params?.query) {
+  const { data, isLoading } = useQuery({
+    queryFn: () =>
+      getRepositories({
+        user: options.user,
+        params: { type, language, sort, direction, query, page },
+      }),
+    queryKey: ["repositories", type, language, sort, direction, query, page],
+  });
+
+  let repositories = data || [];
+
+  if (query) {
     repositories = repositories.filter((repo) =>
-      repo.name.includes((params.query || "").toLowerCase())
+      repo.name.includes((query || "").toLowerCase())
     );
   }
 
-  if (params?.language !== "all") {
+  if (language !== "all") {
     repositories = repositories.filter(
-      (repo) => (repo.language || "").toLowerCase() === params?.language
+      (repo) => (repo.language || "").toLowerCase() === language
     );
   }
 
-  useEffect(() => {
-    mutate();
-  }, [JSON.stringify(params)]);
-
-  return { repositories, isLoadingRepositories: isLoading };
+  return {
+    repositories,
+    isLoading,
+    count: repositories.length || 0,
+  };
 }

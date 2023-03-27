@@ -1,4 +1,3 @@
-import { Container } from ".";
 import { NavItem } from "./NavItem";
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
 export function Nav({ repositoriesCount }: Props) {
   return (
     <nav className="mt-6 sticky top-0 z-20 bg-white dark:bg-github-dark-bg border-b border-[#d8dee4] dark:border-[#373e47]">
-      <Container>
+      <div className="w-[1280px] m-auto px-[32px]">
         <div className="grid gap-3 grid-cols-4">
           <div></div>
           <div className="col-span-3 ml-3">
@@ -117,7 +116,7 @@ export function Nav({ repositoriesCount }: Props) {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </nav>
   );
 }

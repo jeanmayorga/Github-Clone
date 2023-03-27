@@ -10,3 +10,12 @@ export interface Repository {
   stargazers_count: number;
   pushed_at: string;
 }
+
+export interface RepositoryParams {
+  page?: number;
+  query?: string;
+  language?: string;
+  type?: string;
+  direction?: string;
+  sort?: string;
+}

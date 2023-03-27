@@ -1,3 +1,3 @@
 export * from "./ProfileView";
-export * from "./hooks";
 export * from "./types";
+export * from "./services";

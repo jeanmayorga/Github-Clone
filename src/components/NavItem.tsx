@@ -1,6 +1,8 @@
+"use client";
+
 import clsx from "clsx";
-import { Link } from "react-router-dom";
-import { useQueryParam } from "use-query-params";
+import Link from "next/link";
+import { useSearchParams, usePathname } from "next/navigation";
 
 interface Props {
   name: string;
@@ -10,7 +12,9 @@ interface Props {
   count?: number;
 }
 export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
-  const [tab] = useQueryParam("tab");
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab");
 
   const navClassNames =
     "py-[8px] px-[16px] text-sm leading-[30px] text-center whitespace-nowrap border-b-2 hover:border-[#afb8c133] cursor-pointer transition-all";
@@ -18,7 +22,7 @@ export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
     "border-[#fd8c73] hover:border-[#fd8c73] font-semibold";
 
   return (
-    <Link to={`?tab=${name}`}>
+    <Link href={`${pathname}?tab=${name}`}>
       <div
         className={clsx(
           tab === name || isFirstItem

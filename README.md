@@ -1,6 +1,6 @@
-# Github Clone Project
+# Github Clone
 
-This project i am using this tech stack
+This is a clone about github profile page, to code this app i am using this tech stack:
 
 - Next js 13 (app directory)
 - Tailwind css
@@ -8,9 +8,10 @@ This project i am using this tech stack
 - Zustand
 
 Production Mode:
+
 [https://github-clone-2023.vercel.app/](https://github-clone-2023.vercel.app/)
 
-![alt text](http://url/to/image.png)
+![Image](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/image.png)
 
 ## Available Scripts
 

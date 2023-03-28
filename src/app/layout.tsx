@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 
 import QueryProvider from "../providers/Query";
+import Script from "next/script";
 
 export const metadata = {
   title: "Github Clone",
@@ -25,6 +26,21 @@ export default function RootLayout({ children }: Props) {
           type="image/svg+xml"
           href="https://github.githubassets.com/favicons/favicon.svg"
         />
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-63B1NVZZH8`}
+        />
+
+        <Script strategy="lazyOnload">
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-63B1NVZZH8', {
+        page_path: window.location.pathname,
+        });
+    `}
+        </Script>
       </head>
       <body className="bg-white dark:bg-github-dark-bg text-sm dark:text-github-dark-text">
         <QueryProvider>

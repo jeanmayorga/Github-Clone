@@ -1,5 +1,17 @@
 # Github Clone Project
 
+This project i am using this tech stack
+
+- Next js 13 (app directory)
+- Tailwind css
+- React Query
+- Zustand
+
+Production Mode:
+[https://github-clone-2023.vercel.app/](https://github-clone-2023.vercel.app/)
+
+![alt text](http://url/to/image.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -7,17 +19,15 @@ In the project directory, you can run:
 ### `yarn dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:ç](http://localhost:ç) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run all the tests
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Next build the app

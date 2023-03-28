@@ -11,10 +11,13 @@ Production Mode:
 
 [https://github-clone-2023.vercel.app/](https://github-clone-2023.vercel.app/)
 
-Its support dark mode:
+Its support light and dark mode:
 
+![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-desktop.png)
 ![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-desktop.png)
-![dark mobile](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/mobile-desktop.png)
+
+![dark mobile](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-mobile.png)
+![dark mobile](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-mobile.png)
 
 ## Available Scripts
 

@@ -17,7 +17,7 @@ export function RepositoryItem({ repository }: { repository: Repository }) {
 
   return (
     <div className="py-6 border-b border-[#d8dee4] dark:border-[#373e47] grid grid-cols-12">
-      <div className="col-span-9">
+      <div className="col-span-7">
         <h3 className="mb-1 text-xl break-all text-[#0969da] dark:text-[#539bf5] font-semibold">
           {repository.name}
           <span className="ml-2 inline-block px-[7px] text-xs font-medium border border-[#d0d7de] text-[#57606a] dark:border-[#444c56] dark:text-[#768390] rounded-full">
@@ -77,7 +77,7 @@ export function RepositoryItem({ repository }: { repository: Repository }) {
           <span className="mr-4">Updated {repository.pushed_at}</span>
         </div>
       </div>
-      <div className="col-span-3 text-right">
+      <div className="col-span-5 text-right">
         <div className="inline-flex">
           <Button noBorderRight>
             <svg

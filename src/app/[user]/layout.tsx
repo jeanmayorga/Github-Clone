@@ -1,6 +1,6 @@
 import { Nav, SideBar } from "@/components";
-import { getProfile } from "@/modules/Profile/services";
-import { notFound, redirect } from "next/navigation";
+import { getProfile } from "@/modules/Profile";
+import { notFound } from "next/navigation";
 import React from "react";
 
 interface Props {
@@ -20,12 +20,12 @@ export default async function Layout({ children, params: { user } }: Props) {
     <div>
       <Nav repositoriesCount={profile.public_repos} />
 
-      <div className="w-[1280px] m-auto px-[32px]">
-        <div className="grid gap-3 grid-cols-4">
-          <div className="-mt-[32px]">
+      <div className="w-full xl:w-[1280px] m-auto md:px-[32px] px-[15px]">
+        <div className="md:grid md:gap-3 md:grid-cols-4">
+          <div className="md:-mt-[32px] mt-4">
             <SideBar profile={profile} />
           </div>
-          <div className="col-span-3 ml-3">{children}</div>
+          <div className="col-span-3 ml-0 md:ml-3">{children}</div>
         </div>
       </div>
     </div>

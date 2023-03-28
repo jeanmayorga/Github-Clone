@@ -6,12 +6,12 @@ interface Props {
 
 export function Nav({ repositoriesCount }: Props) {
   return (
-    <nav className="mt-6 sticky top-0 z-20 bg-white dark:bg-github-dark-bg border-b border-[#d8dee4] dark:border-[#373e47]">
-      <div className="w-[1280px] m-auto px-[32px]">
+    <nav className="md:mt-6 sticky top-0 z-20 bg-white dark:bg-github-dark-bg border-b border-[#d8dee4] dark:border-[#373e47] md:overflow-hidden overflow-x-auto">
+      <div className="w-full xl:w-[1280px] m-auto md:px-[32px] px-[15px]">
         <div className="grid gap-3 grid-cols-4">
-          <div></div>
-          <div className="col-span-3 ml-3">
-            <div className="flex px-4 ml-[1px]">
+          <div className="md:block hidden"></div>
+          <div className="col-span-4 md:col-span-3 md:ml-3">
+            <div className="flex ml-[1px]">
               <NavItem
                 name="overview"
                 text="Overview"

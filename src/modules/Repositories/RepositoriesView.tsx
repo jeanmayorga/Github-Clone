@@ -9,12 +9,13 @@ import {
 } from "@/modules";
 import { useFiltersStore } from "@/store";
 
-export function RepositoriesView() {
+interface Props {
+  user: string;
+}
+export function RepositoriesView({ user }: Props) {
   const { type, language, sort, direction, query, page } = useFiltersStore();
 
-  const { count, repositories, isLoading } = useRepositories({
-    user: "gaearon",
-  });
+  const { count, repositories, isLoading } = useRepositories({ user });
 
   useEffect(() => {
     window.scroll({

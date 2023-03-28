@@ -8,19 +8,21 @@ interface Props {
 export function SideBar({ profile }: Props) {
   return (
     <div>
-      <div className="mb-4 relative z-20 border border-[#d0d7de] dark:border-[#444c56] rounded-full w-[296px] h-[296px] overflow-hidden">
-        <img src={profile.avatar_url} alt={profile.name} />
-      </div>
+      <div className="flex items-center md:block">
+        <div className="md:mb-4 relative z-20 border border-[#d0d7de] dark:border-[#444c56] rounded-full xl:w-[296px] xl:h-[296px] w-[96px] h-[96px] md:mr-0 mr-4 overflow-hidden">
+          <img src={profile.avatar_url} alt={profile.name} />
+        </div>
 
-      <div className="mb-4">
-        <h1>
-          <span className="dark:text-github-dark-text text-[26px] leading-tight font-semibold block">
-            {profile.name}
-          </span>
-          <span className="text-[#768390] leading-6 font-light text-xl">
-            {profile.login}
-          </span>
-        </h1>
+        <div className="md:mb-4">
+          <h1>
+            <span className="dark:text-github-dark-text text-[26px] leading-tight font-semibold block">
+              {profile.name}
+            </span>
+            <span className="text-[#768390] leading-6 font-light text-xl">
+              {profile.login}
+            </span>
+          </h1>
+        </div>
       </div>
 
       <div className="mb-4 text-base dark:text-github-dark-text">

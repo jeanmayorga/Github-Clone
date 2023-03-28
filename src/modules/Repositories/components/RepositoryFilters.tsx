@@ -32,8 +32,8 @@ export function RepositoryFilters() {
 
   return (
     <div className="py-4 border-b border-[#d8dee4] dark:border-[#373e47]">
-      <div className="flex flex-auto">
-        <div className="flex-auto mr-4">
+      <div className="xl:flex xl:flex-auto">
+        <div className="w-full md:flex-auto xl:mr-4 mb-4 xl:mb-0">
           <input
             placeholder="Find a repository..."
             className="input"
@@ -41,7 +41,7 @@ export function RepositoryFilters() {
             onChange={(event) => setSearchQuery(event.target.value)}
           />
         </div>
-        <div className="flex">
+        <div className="flex mb-4 xl:mb-0">
           <Select
             name="type"
             className="mr-1"
@@ -100,6 +100,7 @@ export function RepositoryFilters() {
             name="direction"
             defaultValue={direction}
             onSelect={(value) => setDirection(value)}
+            className="hidden md:block"
             options={[
               { label: "Asc", value: "asc" },
               { label: "Desc", value: "desc" },
@@ -108,7 +109,7 @@ export function RepositoryFilters() {
             Direction
           </Select>
         </div>
-        <div className="ml-4">
+        <div className="ml-0 xl:ml-4">
           <Button type="green">
             <svg
               aria-hidden="true"

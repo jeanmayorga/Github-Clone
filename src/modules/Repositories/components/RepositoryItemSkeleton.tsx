@@ -3,7 +3,7 @@ import { Button } from "@/components";
 export function RepositoryItemSkeleton() {
   return (
     <div className="py-6 border-b border-[#d8dee4] dark:border-[#373e47] grid grid-cols-12">
-      <div className="col-span-9">
+      <div className="col-span-7">
         <h3 className="mb-1 text-xl break-all">
           <span className="inline-block h-[22px] w-[200px] bg-[#f1f1f1]  dark:bg-[#768390] rounded-full"></span>
         </h3>
@@ -16,7 +16,7 @@ export function RepositoryItemSkeleton() {
           </span>
         </div>
       </div>
-      <div className="col-span-3 text-right">
+      <div className="col-span-5 text-right">
         <div className="inline-flex">
           <Button noBorderRight>
             <span className="inline-block h-[8px] w-[50px] bg-[#f3f4f6] dark:bg-[#768390] rounded-full"></span>

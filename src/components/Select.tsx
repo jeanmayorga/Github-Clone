@@ -65,7 +65,7 @@ export function Select({
         ref={menuRef}
         className={clsx(
           isOpen ? "block" : "hidden",
-          "absolute right-0 left-auto top-auto bottom-auto z-30"
+          "absolute md:right-0 md:left-auto right-auto left-0 top-auto bottom-auto z-30"
         )}
       >
         <div className="my-3 rounded-md w-[300px] bg-[#ffffff] dark:bg-[#2d333b] border-[#d0d7de] dark:border-[#545d68] border text-xs">

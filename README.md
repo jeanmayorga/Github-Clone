@@ -13,11 +13,13 @@ Production Mode:
 
 Its support light and dark mode:
 
-![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-desktop.png)
-![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-desktop.png)
+|                                             Dark desktop                                             |                                            Light desktop                                             |
+| :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+| ![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-desktop.png) | ![Light desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-desktop.png) |
 
-![dark mobile](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-mobile.png)
-![dark mobile](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-mobile.png)
+|                                             Dark mobile                                             |                                            Light mobile                                             |
+| :-------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
+| ![Dark desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/light-mobile.png) | ![Light desktop](https://raw.githubusercontent.com/jeanmayorga/Github-Clone/master/dark-mobile.png) |
 
 ## Available Scripts
 

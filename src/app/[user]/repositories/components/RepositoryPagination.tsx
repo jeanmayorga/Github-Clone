@@ -1,15 +1,12 @@
 "use client";
 
 import { Button } from "@/components";
-import { useFiltersStore } from "@/store";
 
 interface Props {
   repositoriesCount: number;
 }
 export function RepositoriesPagination({ repositoriesCount }: Props) {
-  const { page, setPage } = useFiltersStore();
-
-  const isFirstPage = page === 1;
+  // const isFirstPage = page === 1;
   const hasNextPage = repositoriesCount === 30;
 
   return (
@@ -18,8 +15,8 @@ export function RepositoriesPagination({ repositoriesCount }: Props) {
         <Button
           type="outline"
           noBorderRight
-          disabled={isFirstPage}
-          onClick={() => setPage(page - 1)}
+          // disabled={isFirstPage}
+          // onClick={() => setPage(page - 1)}
         >
           Previous
         </Button>
@@ -27,7 +24,7 @@ export function RepositoriesPagination({ repositoriesCount }: Props) {
           type="outline"
           noBorderLeft
           disabled={!hasNextPage}
-          onClick={() => setPage(page + 1)}
+          // onClick={() => setPage(page + 1)}
         >
           Next
         </Button>

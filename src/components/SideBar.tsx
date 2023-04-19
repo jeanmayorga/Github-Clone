@@ -1,5 +1,5 @@
+import { Profile } from "@/app/[user]/types";
 import { Button } from ".";
-import { Profile } from "../modules";
 
 interface Props {
   profile: Profile;

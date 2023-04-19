@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname, useParams } from "next/navigation";
 
 interface Props {
   name: string;
@@ -12,9 +12,10 @@ interface Props {
   count?: number;
 }
 export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
+  const params = useParams();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const tab = searchParams.get("tab");
+
+  const isTabActive = pathname === `/${params.user}/${name}`;
 
   const navClassNames =
     "py-[8px] px-[16px] text-sm leading-[30px] text-center whitespace-nowrap border-b-2 hover:border-[#afb8c133] cursor-pointer transition-all";
@@ -22,12 +23,10 @@ export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
     "border-[#fd8c73] hover:border-[#fd8c73] font-semibold";
 
   return (
-    <Link href={`${pathname}?tab=${name}`}>
+    <Link href={`${params.user}/${name}`}>
       <div
         className={clsx(
-          tab === name || isFirstItem
-            ? activeNavClassNames
-            : "border-transparent",
+          isTabActive ? activeNavClassNames : "border-transparent",
           navClassNames
         )}
       >

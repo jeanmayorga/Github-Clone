@@ -1,5 +1,5 @@
 import { Button } from "@/components";
-import { Repository } from "../../../modules";
+import { Repository } from "../types";
 
 const languageColors: Record<string, string> = {
   javascript: "#f1e05a",
@@ -11,7 +11,10 @@ const languageColors: Record<string, string> = {
   ruby: "#701516",
 };
 
-export function RepositoryItem({ repository }: { repository: Repository }) {
+interface Props {
+  repository: Repository;
+}
+export function RepositoryItem({ repository }: Props) {
   const language = repository.language || "";
   const languageBgColor = languageColors[language.toLowerCase()];
 

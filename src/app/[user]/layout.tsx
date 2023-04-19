@@ -1,7 +1,8 @@
-import { Nav, SideBar } from "@/components";
-import { getProfile } from "@/modules/Profile";
-import { notFound } from "next/navigation";
 import React from "react";
+import { notFound } from "next/navigation";
+
+import { Nav, SideBar } from "@/components";
+import { getProfile } from "./services";
 
 interface Props {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ export default async function Layout({ children, params: { user } }: Props) {
   const profile = await getProfile({ user });
 
   if (!profile) {
-    notFound();
+    return notFound();
   }
 
   return (

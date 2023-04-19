@@ -1,33 +1,26 @@
+"use client";
+
 import { Select, Button } from "@/components";
 import { useFiltersStore } from "@/store";
-import { useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useCallback, useState } from "react";
 import { useDebouncyEffect } from "use-debouncy";
 
 export function RepositoryFilters() {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const {
-    type,
-    setType,
-    language,
-    setLanguage,
-    sort,
-    setSort,
-    direction,
-    setDirection,
-    query,
-    setQuery,
-  } = useFiltersStore();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams()!;
 
-  useDebouncyEffect(
-    () => {
-      if (searchQuery.length === 0) {
-        setQuery(undefined);
-        return;
-      }
-      setQuery(searchQuery);
+  // Get a new searchParams string by merging the current
+  // searchParams with a provided key/value pair
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+
+      return params.toString();
     },
-    400,
-    [searchQuery]
+    [searchParams]
   );
 
   return (
@@ -37,16 +30,24 @@ export function RepositoryFilters() {
           <input
             placeholder="Find a repository..."
             className="input"
-            defaultValue={query}
-            onChange={(event) => setSearchQuery(event.target.value)}
+            // defaultValue={query}
+            onChange={(event) => console.log(event.target.value)}
           />
         </div>
         <div className="flex mb-4 xl:mb-0">
           <Select
             name="type"
             className="mr-1"
-            defaultValue={type}
-            onSelect={(value) => setType(value)}
+            // defaultValue={type}
+            onSelect={(value) => {
+              console.log("render");
+              console.log(
+                "VALUE",
+                value,
+                pathname + "?" + createQueryString("type", value)
+              );
+              router.push(pathname + "?" + createQueryString("type", value));
+            }}
             options={[
               { label: "All", value: "all" },
               { label: "Owner", value: "owner" },
@@ -58,8 +59,8 @@ export function RepositoryFilters() {
           <Select
             name="language"
             className="mr-1"
-            defaultValue={language}
-            onSelect={(value) => setLanguage(value)}
+            // defaultValue={language}
+            onSelect={(value) => console.log(value)}
             options={[
               { label: "All", value: "all" },
               { label: "JavaScript", value: "javascript" },
@@ -85,8 +86,8 @@ export function RepositoryFilters() {
           <Select
             name="sort"
             className="mr-1"
-            defaultValue={sort}
-            onSelect={(value) => setSort(value)}
+            // defaultValue={sort}
+            onSelect={(value) => console.log(value)}
             options={[
               { label: "Full Name", value: "full_name" },
               { label: "Last Updated", value: "updated" },
@@ -98,8 +99,8 @@ export function RepositoryFilters() {
           </Select>
           <Select
             name="direction"
-            defaultValue={direction}
-            onSelect={(value) => setDirection(value)}
+            // defaultValue={direction}
+            onSelect={(value) => console.log(value)}
             className="hidden md:block"
             options={[
               { label: "Asc", value: "asc" },

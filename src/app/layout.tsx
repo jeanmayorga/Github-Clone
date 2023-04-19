@@ -1,7 +1,6 @@
 import React from "react";
 import "./globals.css";
 
-import QueryProvider from "../providers/Query";
 import Script from "next/script";
 
 export const metadata = {
@@ -43,10 +42,8 @@ export default function RootLayout({ children }: Props) {
         </Script>
       </head>
       <body className="bg-white dark:bg-github-dark-bg text-sm dark:text-github-dark-text">
-        <QueryProvider>
-          <div className="bg-github-header dark:bg-github-dark-header h-[62px]"></div>
-          {children}
-        </QueryProvider>
+        <div className="bg-github-header dark:bg-github-dark-header h-[62px]"></div>
+        {children}
       </body>
     </html>
   );

@@ -1,8 +1,9 @@
 import React from "react";
 import { notFound } from "next/navigation";
 
-import { Nav, SideBar } from "@/components";
 import { getProfile } from "./services";
+import { Nav } from "@/components/Nav";
+import { SideBar } from "@/components/SideBar";
 
 interface Props {
   children: React.ReactNode;

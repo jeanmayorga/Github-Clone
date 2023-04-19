@@ -6,11 +6,10 @@ interface Options {
 }
 export async function getProfile({ user }: Options) {
   try {
-    const data = await githubApi.get<Profile>(`users/${user}`);
+    const response = await githubApi.get<Profile>(`users/${user}`);
 
-    return data.data;
+    return response.data;
   } catch (error: any) {
-    console.log(error?.response?.data);
     return null;
   }
 }

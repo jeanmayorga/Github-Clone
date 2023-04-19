@@ -1,12 +1,16 @@
 "use client";
-
-import { Button } from "@/components";
+import { Button } from "@/components/Button";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
   repositoriesCount: number;
 }
-export function RepositoriesPagination({ repositoriesCount }: Props) {
-  // const isFirstPage = page === 1;
+export function RepositoryPagination({ repositoriesCount }: Props) {
+  const searchParams = useSearchParams()!;
+
+  const page = Number(searchParams.get("page")) || 1;
+
+  const isFirstPage = page === 1;
   const hasNextPage = repositoriesCount === 30;
 
   return (
@@ -15,16 +19,16 @@ export function RepositoriesPagination({ repositoriesCount }: Props) {
         <Button
           type="outline"
           noBorderRight
-          // disabled={isFirstPage}
-          // onClick={() => setPage(page - 1)}
+          disabled={isFirstPage}
+          // onClick={() => addQueryParam("page", page - 1)}
         >
           Previous
         </Button>
         <Button
           type="outline"
           noBorderLeft
-          disabled={!hasNextPage}
-          // onClick={() => setPage(page + 1)}
+          // disabled={!hasNextPage}
+          // onClick={() => addQueryParam("page", page + 1)}
         >
           Next
         </Button>

@@ -1,10 +1,9 @@
 "use client";
 
-import { Select, Button } from "@/components";
-import { useFiltersStore } from "@/store";
+import { Button } from "@/components/Button";
+import { Select } from "@/components/Select";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
-import { useDebouncyEffect } from "use-debouncy";
+import { useCallback } from "react";
 
 export function RepositoryFilters() {
   const router = useRouter();

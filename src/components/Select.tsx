@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
-import { Button } from ".";
+import { Button } from "./Button";
 
 type Option = {
   label: string;

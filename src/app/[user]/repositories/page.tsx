@@ -1,7 +1,6 @@
 import { getRepositories } from "./services";
 import { RepositoryItem } from "./components/RepositoryItem";
-import { RepositoryFilters } from "./components/RepositoryFilters";
-import { RepositoriesPagination } from "./components/RepositoryPagination";
+import { RepositoryPagination } from "./components/RepositoryPagination";
 
 interface Props {
   params: {
@@ -26,13 +25,16 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
-      <RepositoryFilters />
       <div className="mb-4">
         {repositories.map((repository) => (
-          <RepositoryItem key={repository.node_id} repository={repository} />
+          <RepositoryItem
+            key={repository.node_id}
+            repository={repository}
+            user={params.user}
+          />
         ))}
       </div>
-      <RepositoriesPagination repositoriesCount={repositories.length} />
+      <RepositoryPagination repositoriesCount={repositories.length} />
     </>
   );
 }

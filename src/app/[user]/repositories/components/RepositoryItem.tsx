@@ -1,4 +1,4 @@
-import { Button } from "@/components";
+import { Button } from "@/components/Button";
 import { Repository } from "../types";
 
 const languageColors: Record<string, string> = {
@@ -13,20 +13,28 @@ const languageColors: Record<string, string> = {
 
 interface Props {
   repository: Repository;
+  user: string;
 }
-export function RepositoryItem({ repository }: Props) {
+export function RepositoryItem({ repository, user }: Props) {
   const language = repository.language || "";
   const languageBgColor = languageColors[language.toLowerCase()];
 
   return (
     <div className="py-6 border-b border-[#d8dee4] dark:border-[#373e47] grid grid-cols-12">
       <div className="col-span-7">
-        <h3 className="mb-1 text-xl break-all text-[#0969da] dark:text-[#539bf5] font-semibold">
-          {repository.name}
+        <div>
+          <a
+            href={`https://github.com/${user}/${repository.name}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mb-1 text-xl break-all hover:underline text-[#0969da] dark:text-[#539bf5] font-semibold"
+          >
+            {repository.name}
+          </a>
           <span className="ml-2 inline-block px-[7px] text-xs font-medium border border-[#d0d7de] text-[#57606a] dark:border-[#444c56] dark:text-[#768390] rounded-full">
             Public
           </span>
-        </h3>
+        </div>
         {repository.fork && (
           <p className="mb-1 text-[#768390] text-xs">
             Forked from {repository.homepage}

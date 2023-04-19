@@ -1,7 +1,7 @@
 import React from "react";
-import "./globals.css";
-
 import Script from "next/script";
+
+import "./globals.css";
 
 export const metadata = {
   title: "Github Clone",
@@ -32,13 +32,13 @@ export default function RootLayout({ children }: Props) {
 
         <Script strategy="lazyOnload">
           {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-63B1NVZZH8', {
-        page_path: window.location.pathname,
-        });
-    `}
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-63B1NVZZH8', {
+              page_path: window.location.pathname,
+              });
+          `}
         </Script>
       </head>
       <body className="bg-white dark:bg-github-dark-bg text-sm dark:text-github-dark-text">

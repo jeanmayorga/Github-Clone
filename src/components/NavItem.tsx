@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { useSearchParams, usePathname, useParams } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 
 interface Props {
   name: string;

@@ -1,17 +1,22 @@
 "use client";
+
 import { Button } from "@/components/Button";
-import { useSearchParams } from "next/navigation";
+import useQueryParams from "@/hooks/useQueryParams";
+
+interface QueryParams {
+  page: string;
+}
 
 interface Props {
   repositoriesCount: number;
 }
 export function RepositoryPagination({ repositoriesCount }: Props) {
-  const searchParams = useSearchParams()!;
+  const { queryParams, setQueryParams } = useQueryParams<QueryParams>();
 
-  const page = Number(searchParams.get("page")) || 1;
+  const page = Number(queryParams.page) || 1;
 
   const isFirstPage = page === 1;
-  const hasNextPage = repositoriesCount === 30;
+  const hasNextPage = repositoriesCount === 100;
 
   return (
     <div className="mb-4 w-full flex justify-center">
@@ -20,15 +25,17 @@ export function RepositoryPagination({ repositoriesCount }: Props) {
           type="outline"
           noBorderRight
           disabled={isFirstPage}
-          // onClick={() => addQueryParam("page", page - 1)}
+          onClick={() => {
+            setQueryParams({ page: String(page - 1) });
+          }}
         >
           Previous
         </Button>
         <Button
           type="outline"
           noBorderLeft
-          // disabled={!hasNextPage}
-          // onClick={() => addQueryParam("page", page + 1)}
+          disabled={!hasNextPage}
+          onClick={() => setQueryParams({ page: String(page + 1) })}
         >
           Next
         </Button>

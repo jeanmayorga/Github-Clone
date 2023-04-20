@@ -8,10 +8,9 @@ interface Props {
   name: string;
   text: string;
   icon: React.ReactNode;
-  isFirstItem?: boolean;
   count?: number;
 }
-export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
+export function NavItem({ name, text, icon, count }: Props) {
   const params = useParams();
   const pathname = usePathname();
 
@@ -19,8 +18,7 @@ export function NavItem({ name, text, icon, isFirstItem, count }: Props) {
 
   const navClassNames =
     "py-[8px] px-[16px] text-sm leading-[30px] text-center whitespace-nowrap border-b-2 hover:border-[#afb8c133] cursor-pointer transition-all";
-  const activeNavClassNames =
-    "border-[#fd8c73] hover:border-[#fd8c73] font-semibold";
+  const activeNavClassNames = "border-[#fd8c73] hover:border-[#fd8c73]";
 
   return (
     <Link href={`${params.user}/${name}`}>
